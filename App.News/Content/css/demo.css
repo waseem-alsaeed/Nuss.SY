@@ -1,0 +1,58 @@
+body {
+
+ 
+
+  color: white;
+  font-size: 11px;
+  height: auto;
+  padding-bottom: 20px;
+  font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+  
+}
+.header{background-color:#f7ca3f;height:40px;text-align:center;padding-top:20px;opacity:0.9;}
+
+.nav{list-style:none;color:black;margin:0px;}
+.nav li{display:inline;font-size:1.5em;padding:20px;margin:0px;}
+
+.plate{border-radius:50%;transition:all 1s;}
+.plate img{width:100%;height:auto;}
+.plate:hover{text-align:center; transform:scale(1.05);}
+.plate:hover+div{opacity:0;}
+
+.plate:hover::after{content:attr(data-tip);position:absolute;text-align:center;right:5%;}
+
+.nav li:hover{background-color:#393939;opacity:0.5;color:Gold;}
+
+.meal img{height:500px;}
+ .meal img{margin:10px;}
+
+hr{background-color:GOld;opacity:0.9;margin:20px;}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+ 
+  font-weight: normal;
+  padding-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  padding-top: 20px;
+  text-align: center;
+}
+
+p {
+ 
+  overflow: hidden;
+  padding: 10px 0;
+  text-align: center;
+}
+
+

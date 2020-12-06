@@ -1,0 +1,52 @@
+﻿@model List<App.Models.Departments>
+@{
+    ViewBag.Title = "الأقسام";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section id="content">
+
+    <div class="container">
+
+        <div id="gallery" dir="rtl">
+            <div id="gallery-header">
+                <div id="gallery-header-center">
+                    <div id="gallery-header-center-left">
+                        <div id="gallery-header-center-left-icon"><span class="iconb" data-icon="&#xe23a;"></span></div>
+                        <div id="gallery-header-center-left-title">كل الأقسام</div>
+                    </div>
+                    <div id="gallery-header-center-right">
+                        <div class="gallery-header-center-right-links" id="filter-all">كل</div>
+                        <div class="gallery-header-center-right-links" id="filter-studio">رئيسي</div>
+                        <div class="gallery-header-center-right-links" id="filter-landscape">فرعي</div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="gallery-content">
+                <div id="gallery-content-center">
+                    @foreach (var item in Model)
+                    {
+                        <a href="@Url.Action("AllNews", "Home", new { ID = item.DID })">
+                       
+                    <img src="@item.Image" class="all @item.CssName" /></a>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+@section scripts {
+    <link href="/Content/gallery/_css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Content/gallery/_scripts/jquery-ui-1.10.4.min.js"></script>
+    <script type="text/javascript" src="/Content/gallery/_scripts/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/Content/gallery/_scripts/animated-masonry-gallery.js"></script>
+}
+
+

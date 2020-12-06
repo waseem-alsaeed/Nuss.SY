@@ -1,0 +1,138 @@
+﻿@{
+    Layout = null;
+ 
+}
+<!DOCTYPE html>
+<!--[if IE 8]>
+         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <title>تسجيل الدخول</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/register/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/Content/register/css/login.css" rel="stylesheet">
+    <link href="/Content/register/css/animate-custom.css" rel="stylesheet">
+    <script src="/Content/register/js/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="/Content/register/css/style.css">
+
+</head>
+<body>
+
+    <div class="cont">
+        <div class="demo">
+            <div class="login">
+                <div class="login__check"></div>
+                <div class="login__form">
+                    <div class="login__row">
+                        <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+                            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+                        </svg>
+                        <input type="text" id="UserName" class="login__input name" placeholder="المستخدم" dir="rtl"  />
+                    </div>
+                    <div class="login__row">
+                        <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+                            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+                        </svg>
+                        <input id="Password" type="password" class="login__input pass" placeholder="كلمة المرور" dir="rtl" />
+                    </div>
+                    <button type="button" id="signin" class="login__submit">الدخول</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+<link href="/Content/notify/css/demo.css" rel="stylesheet" />
+<link href="/Content/notify/css/ns-default.css" rel="stylesheet" />
+<link href="/Content/notify/css/ns-style-attached.css" rel="stylesheet" />
+<script src="/Content/notify/js/modernizr.custom.js"></script>
+<script src="/Content/notify/js/classie.js"></script>
+<script src="/Content/notify/js/notificationfx.js"></script>
+<script src="/Content/app.js"></script>
+<script>
+    var animating = false,
+    submitPhase1 = 1100,
+    submitPhase2 = 400,
+    logoutPhase1 = 800,
+    $login = $(".login"),
+    $app = $(".app");
+
+    function ripple(elem) {
+        $(".ripple").remove();
+        var elTop = elem.offset().top,
+            elLeft = elem.offset().left,
+            x = $('.login__submit').pageX - elLeft,
+            y = $('.login__submit').pageY - elTop;
+        var $ripple = $("<div class='ripple'></div>");
+        $ripple.css({ top: y, left: x });
+        elem.append($ripple);
+    };
+
+
+    function AnimationRegister() {
+        if (animating) return;
+        animating = true;
+        var that = $('.login__submit');
+        ripple($(that));
+        $(that).addClass("processing");
+        setTimeout(function () {
+            $(that).addClass("success");
+            setTimeout(function () {
+            }, submitPhase2 - 70);
+            setTimeout(function () {
+                $login.hide();
+                $login.addClass("inactive");
+                animating = false;
+                $(that).removeClass("success processing");
+            }, submitPhase2);
+        }, submitPhase1);
+    }
+
+
+    function LoginUser() {
+        var UserName = GetValue('UserName');
+        var Password = GetValue('Password');
+        if (IsEmpty('UserName') || IsEmpty('Password')) {
+            ShowInformation('الرجاء إدخال الحقول');
+        }
+        else {
+            var obj = {
+                UserName: UserName,
+                Password: Password
+            };
+            $.post('/Account/LoginUser', obj, function (data) {
+                if (data.State == true) {
+                    ShowInformation('تم العمل بنجاح');
+                    AnimationRegister();
+                    setTimeout(function () {
+                        location.href = '/CPanel/Index';
+                    }, 4000);
+                }
+                else {
+                    ShowInformation(data.ErrorMessage);
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        Click('signin', LoginUser);
+    });
+
+
+</script>
+
+
+
+

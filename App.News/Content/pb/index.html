@@ -1,0 +1,218 @@
+
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>HoldOn.js</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="holdon-resources/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="holdon-resources/css/main.css" />
+                <link rel="stylesheet" href="holdon-resources/css/HoldOn.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="holdon-resources/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+                                    <span class="image avatar"><img src="holdon-resources/images/avatar.jpg" alt="" /></span>
+                                    <h1 id="logo"><a href="#">HoldOn.js</a></h1>
+                                    <p>Prevent that your user <br><b>do something stupid</b><br>While something in the background is executed</p>
+				</header>
+				<nav id="nav">
+                                    <ul>
+                                        <li><a href="#one" class="active">How To Use</a></li>
+                                        <li><a href="#two">Quick Demos</a></li>
+                                        <li><a href="#three">Usage</a></li>
+                                    </ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+                                            <li><a href="https://github.com/sdkcarlos/HoldOn.js" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="container">
+									<header class="major">
+                                                                            <h2>How to use</h2>
+									</header>
+                                                                        
+                                                                        Include HoldOn.css file !<br>
+                                                                        <code style="font-size: 0.7em;">&lt;link rel=&quot;stylesheet&quot; href=&quot;HoldOn.css&quot;&gt;</code>
+                                                                        <br>Include jQuery !<br>
+                                                                        <code style="font-size: 0.7em;">&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;</code>
+                                                                        <br>Include HoldOn.js 
+                                                                        <br><code style="font-size: 0.7em;">&lt;script src=&quot;HoldOn.js&quot;&gt;&lt;/script&gt;</code>
+                                                                        <p>
+                                                                            We are ready to prevent stupid acts !<br>
+                                                                            <a href="https://github.com/sdkcarlos/HoldOn.js/raw/master/src/download/Holdon.zip" class="special">DOWNLOAD LATEST VERSION HERE</a>
+                                                                        </p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two">
+								<div class="container">
+                                                                        <header class="major">
+                                                                            <h2>Quick demos</h2>
+									</header>
+                                                                        <p>
+                                                                            HoldOn.js Uses <a href="https://github.com/tobiasahlin/SpinKit" target="_blank">SpinKit for the animations</a>
+                                                                        </p>
+									<ul class="feature-icons">
+                                                                            <li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Dot Theme" onclick="testHoldon('sk-dot');">
+                                                                                </li>
+                                                                                <li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Rect Theme" onclick="testHoldon('sk-rect');">
+                                                                                </li>
+										<li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Cube Theme" onclick="testHoldon('sk-cube');">
+                                                                                </li>
+										<li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Bounce Theme" onclick="testHoldon('sk-bounce');">
+                                                                                </li>
+										<li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Circle Theme" onclick="testHoldon('sk-circle');">
+                                                                                </li>
+                                                                                <li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Cube Grid Theme" onclick="testHoldon('sk-cube-grid');">
+                                                                                </li>
+                                                                                <li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Folding Cube Theme" onclick="testHoldon('sk-folding-cube');">
+                                                                                </li>
+                                                                                <li class="fa-cubes">
+                                                                                    <input type="submit" class="special" value="Fading Circle Theme" onclick="testHoldon('sk-fading-circle');">
+                                                                                </li>
+									</ul>
+                                                                        <p>
+                                                                            You dont like anything of the previous themes or you want to customize your own theme? No problem !<br>
+                                                                            HoldOn allows you to customize the main content and message ,in the way you want! Test it !
+                                                                        </p>
+                                                                        <ul class="feature-icons">
+                                                                            <li class="fa-cubes">
+                                                                                <input type="submit" class="special" value="Custom Theme" onclick="customHoldon();">
+                                                                            </li>
+                                                                        </ul>
+                                                                        <p>Previous theme achieved with :</p>
+<pre style="font-size:0.7em;">
+    HoldOn.open({
+        theme:&quot;custom&quot;,
+        content:'&lt;img style=&quot;width:80px;&quot; src=&quot;https://www.google.de/images/bran\n\
+        ding/googlelogo/2x/googlelogo_color_272x92dp.png&quot; class=&quot;center-block&quot;&gt;',
+        message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit.\n\
+        &lt;br&gt; &lt;input type=&quot;button&quot; value=&quot;Close this Cover&quot; onclick=&quot;HoldOn.close();&quot;&gt;',
+        backgroundColor:&quot;#1847B1&quot;,
+        textColor:&quot;white&quot;,
+    });
+</pre>
+								</div>
+							</section>
+
+						<!-- Three -->
+							<section id="three">
+								<div class="container">
+									<h3>Usage</h3>
+									<p>HoldOn.js is really easy to use.</p>
+									<div class="features">
+										<article>
+											<div class="col-md-12">
+                                                                                            <h4><code>HoldOn.open(properties);</code></h4>
+                                                                                            <p>
+                                                                                                Initialize hold on without properties locks the ui with the default theme "sk-rect".
+                                                                                                Those are the availables properties that supports HoldOn.<br>
+                                                                                                <b>Only 1 Instance of HoldOn is available in the window.</b><br>
+                                                                                                That means , if you call again the open method, the existing Layout will be deleted.
+                                                                                            </p>
+                                                                                            <pre style="font-size: 0.7em;">
+HoldOn.open({
+    theme:"sk-bounce",//If not given or inexistent theme throws default theme sk-rect
+    message: "&lt;h4&gt; Put your html here too ! &lt;/h4&gt;",
+    content:"Your HTML Content", // If theme is set to "custom", this property is available
+                                 // this will replace the theme by something customized.
+    backgroundColor:"blue",//Change the background color of holdon with javascript
+                           // Keep in mind is necessary the .css file too.
+    textColor:"white" // Change the font color of the message
+});
+                                                                                            </pre>
+											</div>
+										</article>
+										<article>
+											<div class="col-md-12">
+												<h4><code>HoldOn.close();</code></h4>
+                                                                                                <p>
+                                                                                                    Remove the layout that locks the UI. So simple like that !
+                                                                                                </p>
+											</div>
+										</article>
+									</div>
+								</div>
+							</section>
+
+						<!-- Four -->
+
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; HoldOn.js . All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="holdon-resources/js/jquery.min.js"></script>
+			<script src="holdon-resources/js/jquery.scrollzer.min.js"></script>
+			<script src="holdon-resources/js/jquery.scrolly.min.js"></script>
+			<script src="holdon-resources/js/skel.min.js"></script>
+			<script src="holdon-resources/js/util.js"></script>
+			<!--[if lte IE 8]><script src="holdon-resources/js/ie/respond.min.js"></script><![endif]-->
+			<script src="holdon-resources/js/main.js"></script>
+                        <script src="holdon-resources/js/HoldOn.js"></script>
+                        <script>
+                            $(function(){
+                               
+                            });
+                            
+                            function customHoldon(){
+                                HoldOn.open({
+                                    theme:"custom",
+                                    content:'<img style="width:80px;" src="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="center-block">',
+                                    message:' some cool message for your user here ! Or where the logo is ! Your skills are the only limit. <br> <input type="button" value="Close this Cover" onclick="HoldOn.close();">',
+                                    backgroundColor:"#1847B1",
+                                    textColor:"white",
+                                });
+                            }
+                            
+                            function testHoldon(themeName){
+                                HoldOn.open({
+                                    theme:themeName,
+                                    message:"<h4>"+themeName+" Demo. Closing in 2 seconds</h4>"
+                                });
+                                
+                                setTimeout(function(){
+                                    HoldOn.close();
+                                },2000);
+                            }
+                        </script>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "تواصل معنا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section style="color:black" id="content">
+    <div class="container">
+
+
+
+        <!-- Main Content -->
+
+        <div class="row">
+
+            <!-- Single -->
+            <div class="columns large-12">
+                <iframe id="trackFrame" style="border-style: none;" src="~/Content/map/index_iframe.html" height="1050" width="1000"></iframe>
+
+                
+
+                  
+                </div>
+                <div class="contact-form">
+                    <form action="" method="post" id="contactForm" name="contactForm">
+                        <div class="form">
+                            <label>الإسم</label>
+                            <div class="input">
+                                <span class="name"></span>
+                                <input type="text" class="name" name="yourname" id="yourname" />
+                            </div>
+                        </div>
+                        <div class="form">
+                            <label>البريد</label>
+                            <div class="input">
+                                <span class="email"></span>
+                                <input type="text" class="name" name="email" id="email" />
+                            </div>
+                        </div>
+                        <div class="form">
+                            <label>الموضوع</label>
+                            <div class="input">
+                                <span class="website"></span>
+                                <input type="text" class="name" name="tele" id="tele" />
+                            </div>
+                        </div>
+                        <div class="form">
+                            <label>الرسالة</label>
+                            <textarea name="message" rows="10" cols="20"></textarea>
+                        </div>
+                        <div class="form2">
+                            <!--<input type="submit" class="send-message" value="Send Message" />-->
+                            <a href="javascript:submitForm();" class="send">إرسال</a>
+                        </div>
+
+                    </form>
+
+                    <div class="alertMessage"></div>
+                </div>
+            </div>
+            <!-- /Single -->
+
+        </div>
+
+    <div class="columns large-12">
+
+        <div class="outerwide">
+            <h5 class="line"><span>العنوان </span></h5>
+            <p>سوريا - حلب- دوار عمر ابوريشة جانب كلية الهندسة المدنية </p>
+
+            <div class="contact-info">
+                <p class="man"><i class="icon-location"></i>حلب <br />دوار عمر ابو ريشة <br />سوريا </p>
+                <p class="phone"><i class="icon-phone"></i>الهاتف : +905389721177</p>
+            </div>
+
+
+        </div>
+        <!-- /Main Content -->
+        <!-- Left Sidebar -->
+     
+            <div class="columns large-12">
+                <h5 class="line"><span>الشبكات الإجتماعية</span></h5>
+                <ul style="display:flex; background-color:gray;list-style:none;text-align:center;font-size:16px;margin:20px;" class="social">
+                    <li>
+                        <a href="www.facebook.com/IEF.AdministrativeBoard" class="facebook"><i class="icon-facebook"></i></a>
+                        <span>6,800 <br> <i>Likes</i></span>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter"><i class="icon-twitter"></i></a>
+                        <span>12,475 <br> <i>followers</i></span>
+                    </li>
+                    <li>
+                        <a href="www.youtube/nuss" class="rss"><i class="icon-rss"></i></a>
+                        <span>12,475 <br> <i>Subscribers</i></span>
+                    </li>
+                </ul>
+          </div>
+
+
+
+        </div>
+        <!-- /Left Sidebar -->
+
+    </div>
+</section>
+
+
+@section scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0mc8aAubzHzeEXcsauOa4Jt7JMX7uv5Q&callback=initMap"></script>
+    <script>
+        var myCenter = new google.maps.LatLng(36.784364, 34.617392);
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+
+            marker.setMap(map);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+}

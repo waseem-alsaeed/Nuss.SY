@@ -1,0 +1,521 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="@Url.Action("Index","Home")">Home</a> </li>
+                        <li class="active">Default Dashboard</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step="5" data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"><i class="fa fa-arrows-h"></i></div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"><i class="fa fa-arrows-v"></i></div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"><i class="glyphicon glyphicon-fullscreen"></i></div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="vd_content-section clearfix">
+                <div class="row">
+                    <div class="col-md-7 mgbt-md-20 mgbt-lg-0">
+                        <div class="panel vd_interactive-widget light-widget widget">
+                            <div class="panel-body-list">
+                                <div class="vd_panel-menu">
+                                    <div data-action="refresh" class="menu entypo-icon smaller-font" data-placement="bottom" data-toggle="tooltip" data-original-title="Refresh"><i class="icon-cycle"></i></div>
+                                    <div class="menu entypo-icon smaller-font" data-placement="bottom" data-toggle="tooltip" data-original-title="Config">
+                                        <div data-action="click-trigger" class="menu-trigger"><i class="icon-cog"></i></div>
+                                        <div class="vd_mega-menu-content  width-xs-2  left-xs" data-action="click-target">
+                                            <div class="child-menu">
+                                                <div class="content-list content-menu">
+                                                    <ul class="list-wrapper pd-lr-10">
+                                                        <li>
+                                                            <a href="#">
+                                                                <div class="menu-icon"><i class=" fa fa-user"></i></div>
+                                                                <div class="menu-text">Panel Menu</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="menu entypo-icon" data-placement="bottom" data-toggle="tooltip" data-original-title="Close" data-action="close"><i class="icon-cross"></i></div>
+                                </div>
+                                <!-- vd_panel-menu -->
+
+
+                                <div class="pd-20">
+                                    <h5 class="mgbt-xs-20 mgtp-20"><span class="menu-icon append-icon"><i class="icon-graph"></i></span><strong>Traffic in Database</strong> (@DateTime.Now.ToShortDateString()) </h5>
+                                    <div id="revenue-line-chart" style="height: 255px;"></div>
+                                </div>
+                                <div class="row mgbt-xs-0">
+                                    <div class="col-sm-4 mgbt-xs-15 mgbt-sm-0">
+                                        <div class="item-left pd-15">
+                                            <div id="revenue-donut-chart" style="height: 100px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="item-right pd-15">
+                                            <div id="revenue-bar-chart" style="height: 100px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Panel Widget -->
+                    </div>
+                    <!--col-md-7 -->
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="vd_status-widget vd_bg-green widget">
+                                    <div class="vd_panel-menu">
+                                        <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font"><i class="icon-cycle"></i></div>
+                                    </div>
+                                    <!-- vd_panel-menu -->
+
+                                    <a class="panel-body" href="@Url.Action("Users","CPanel")">
+                                        <div class="clearfix">
+                                            <span class="menu-icon">
+                                                <i class="icon-users"></i>
+                                            </span>
+                                            <span class="menu-value">
+                                                @ViewBag.NumberUsers
+                                            </span>
+                                        </div>
+                                        <div class="menu-text clearfix">
+                                            All Users
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--col-md-12 -->
+                        </div>
+                        <!-- .row -->
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="vd_status-widget vd_bg-red  widget">
+                                    <div class="vd_panel-menu">
+                                        <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font"><i class="icon-cycle"></i></div>
+                                    </div>
+                                    <!-- vd_panel-menu -->
+
+                                    <a class="panel-body" href="@Url.Action("Roles","CPanel")">
+                                        <div class="clearfix">
+                                            <span class="menu-icon">
+                                                <i class="icon-bars"></i>
+                                            </span>
+                                            <span class="menu-value">
+                                                @ViewBag.NumberRoles
+                                            </span>
+                                        </div>
+                                        <div class="menu-text clearfix">
+                                            Roles
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--col-xs-6 -->
+                            <div class="col-xs-6">
+                                <div class="vd_status-widget vd_bg-blue widget">
+                                    <div class="vd_panel-menu">
+                                        <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font"><i class="icon-cycle"></i></div>
+                                    </div>
+                                    <!-- vd_panel-menu -->
+
+                                    <a class="panel-body" href="@Url.Action("Departments","Manage")">
+                                        <div class="clearfix">
+                                            <span class="menu-icon">
+                                                <i class="fa fa-sitemap"></i>
+                                            </span>
+                                            <span class="menu-value">
+                                                @ViewBag.NumberDepartment
+                                            </span>
+                                        </div>
+                                        <div class="menu-text clearfix">
+                                            Departments
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--col-xs-6 -->
+                        </div>
+                        <!-- .row -->
+                        
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="vd_status-widget vd_bg-green widget">
+                                    <div class="vd_panel-menu">
+                                        <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font"><i class="icon-cycle"></i></div>
+                                    </div>
+                                    <!-- vd_panel-menu -->
+
+                                    <a class="panel-body" href="@Url.Action("News","CPanel")">
+                                        <div class="clearfix">
+                                            <span class="menu-icon">
+                                                <i class="icon-book"></i>
+                                            </span>
+                                            <span class="menu-value">
+                                                @ViewBag.NumberNews
+                                            </span>
+                                        </div>
+                                        <div class="menu-text clearfix">
+                                            Articles
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--col-md-12 -->
+                        </div>
+
+
+                        <!-- .row -->
+
+                    </div>
+                    <!-- .col-md-5 -->
+                </div>
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+
+
+@section scripts{
+
+    <!-- Specific Page Scripts Put Here -->
+    <!-- Flot Chart  -->
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/flot/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/flot/jquery.flot.categories.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/flot/jquery.flot.time.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/flot/jquery.flot.animator.min.js"></script>
+
+    <script>
+        $(window).load(function () {
+
+
+            $.fn.UseTooltip = function () {
+                var previousPoint = null;
+
+                $(this).bind("plothover", function (event, pos, item) {
+                    if (item) {
+                        if (previousPoint != item.dataIndex) {
+
+                            previousPoint = item.dataIndex;
+
+                            $("#tooltip").remove();
+                            var x = item.datapoint[0].toFixed(2),
+							y = item.datapoint[1].toFixed(2);
+
+                            showTooltip(item.pageX, item.pageY,
+								"<p class='vd_bg-green'><strong class='mgr-10 mgl-10'>" + @DateTime.Now.Month +  '.' +  @DateTime.Now.Year + " </strong></p>" +
+								"<div style='padding: 0 10px 10px;'>" +
+								"<div>Traffic Line : <strong>" + Math.round(y) + "</strong></div>" +
+								"</div>"
+							);
+                        }
+                    } else {
+                        $("#tooltip").remove();
+                        previousPoint = null;
+                    }
+                });
+            };
+
+            function showTooltip(x, y, contents) {
+                $('<div id="tooltip">' + contents + '</div>').css({
+                    position: 'absolute',
+                    display: 'none',
+                    top: y + 5,
+                    left: x + 20,
+                    size: '10',
+                    //				'border-top' : '3px solid #1FAE66',
+                    'background-color': '#111111',
+                    color: "#FFFFFF",
+                    opacity: 0.85
+                }).appendTo("body").fadeIn(200);
+            }
+
+            /* REVENUE LINE CHART */
+
+            var d2 = [[1, (Math.random() * 100) + 1],
+                    [2, (Math.random() * 200) + 1],
+                    [3,(Math.random() * 300) + 1],
+                    [4, (Math.random() * 400) + 1],
+                    [5, (Math.random() * 500) + 1],
+                    [6, (Math.random() * 600) + 1],
+                    [7, (Math.random() * 700) + 1],
+                    [8, (Math.random() * 800) + 1],
+                    [9,(Math.random() * 900) + 1],
+                    [10, (Math.random() * 700) + 1],
+                    [11, (Math.random() * 500) + 1],
+                    [12, (Math.random() * 300) + 1],
+                    [13, (Math.random() * 200) + 1]
+
+            ];
+            var d1 =  [[1, (Math.random() * 100) + 1],
+                    [2, (Math.random() * 200) + 1],
+                    [3,(Math.random() * 300) + 1],
+                    [4, (Math.random() * 400) + 1],
+                    [5, (Math.random() * 500) + 1],
+                    [6, (Math.random() * 600) + 1],
+                    [7, (Math.random() * 700) + 1],
+                    [8, (Math.random() * 800) + 1],
+                    [9,(Math.random() * 900) + 1],
+                    [10, (Math.random() * 700) + 1],
+                    [11, (Math.random() * 500) + 1],
+                    [12, (Math.random() * 300) + 1],
+                    [13, (Math.random() * 200) + 1]
+
+            ];
+            var plot = $.plotAnimator($("#revenue-line-chart"), [
+                    {
+                        label: "Revenue",
+                        data: d2,
+                        lines: {
+                            fill: 0.4,
+                            lineWidth: 0,
+                        },
+                        color: ['#f2be3e']
+                    }, {
+                        data: d1,
+                        animator: { steps: 60, duration: 1000, start: 0 },
+                        lines: { lineWidth: 2 },
+                        shadowSize: 0,
+                        color: '#F85D2C'
+                    }, {
+                        label: "Database",
+                        data: d1,
+                        points: { show: true, fill: true, radius: 6, fillColor: "#F85D2C", lineWidth: 3 },
+                        color: '#fff',
+                        shadowSize: 0
+                    },
+                    {
+                        label: "Traffic",
+                        data: d2,
+                        points: { show: true, fill: true, radius: 6, fillColor: "#f2be3e", lineWidth: 3 },
+                        color: '#fff',
+                        shadowSize: 0
+                    }
+            ], {
+                xaxis: {
+                    tickLength: 0,
+                    tickDecimals: 0,
+                    min: 2,
+
+                    font: {
+                        lineHeight: 13,
+                        style: "normal",
+                        weight: "bold",
+                        family: "sans-serif",
+                        variant: "small-caps",
+                        color: "#6F7B8A"
+                    }
+                },
+                yaxis: {
+                    ticks: 3,
+                    tickDecimals: 0,
+                    tickColor: "#f0f0f0",
+                    font: {
+                        lineHeight: 13,
+                        style: "normal",
+                        weight: "bold",
+                        family: "sans-serif",
+                        variant: "small-caps",
+                        color: "#6F7B8A"
+                    }
+                },
+                grid: {
+                    backgroundColor: { colors: ["#fff", "#fff"] },
+                    borderWidth: 1, borderColor: "#f0f0f0",
+                    margin: 0,
+                    minBorderMargin: 0,
+                    labelMargin: 20,
+                    hoverable: true,
+                    clickable: true,
+                    mouseActiveRadius: 6
+                },
+                legend: { show: false }
+            });
+
+            $("#revenue-line-chart").UseTooltip();
+
+            $(window).on("resize", function () {
+                plot.resize();
+                plot.setupGrid();
+                plot.draw();
+            });
+
+
+            /* REVENUE DONUT CHART */
+
+            var data2 = [],
+                series = 3;
+            var data2 = [
+                { label: "Departments", data:@ViewBag.NumberDepartment },
+                { label: "Articles", data: @ViewBag.NumberNews }
+            ];
+            var revenue_donut_chart = $("#revenue-donut-chart");
+
+            $("#revenue-donut-chart").bind("plotclick", function (event, pos, item) {
+                if (item) {
+                    $("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
+                    plot.highlight(item.series, item.datapoint);
+                }
+            });
+            $.plot(revenue_donut_chart, data2, {
+                series: {
+                    pie: {
+                        innerRadius: 0.4,
+                        show: true
+                    }
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true,
+                },
+                colors: ["#1FAE66", "#F85D2C "]
+            });
+
+
+            /* REVENUE BAR CHART */
+            var arrayOfArrays = @Html.Raw(Json.Encode(ViewBag.Charts));
+
+
+            var bar_chart_data =  [["Jan", 0], ["Feb", 0], ["Mar", 0], ["Apr", 0],
+                ["May", 0], ["Jun", 0], ["Jul", 0], ["Aug", 0], ["Sep", 0], ["Oct", 0], ["Nov", 0], ["Dec", 0]];
+            for (var i = 0; i < arrayOfArrays.length; i++) {
+                if (arrayOfArrays[i].DateEmployees == 1) {
+                    bar_chart_data[0] =["Jan",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 2) {
+                    bar_chart_data[1] =["Feb",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 3) {
+                    bar_chart_data[2] =["Mar",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 4) {
+                    bar_chart_data[3] =["Apr",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 5) {
+                    bar_chart_data[4] =["May",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 6) {
+                    bar_chart_data[5] =["Jun",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 7) {
+                    bar_chart_data[6] =["Jul",arrayOfArrays[i].CountEmployees];
+                }else  if (arrayOfArrays[i].DateEmployees ==8) {
+                    bar_chart_data[7] =["Aug",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 9) {
+                    bar_chart_data[8] =["Sep",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 10) {
+                    bar_chart_data[9] =["Oct",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 11) {
+                    bar_chart_data[10] =["Nov",arrayOfArrays[i].CountEmployees];
+                }
+                else  if (arrayOfArrays[i].DateEmployees == 12) {
+                    bar_chart_data[11] =["Dec",arrayOfArrays[i].CountEmployees];
+                }
+            }
+
+            var bar_chart = $.plot(
+            $("#revenue-bar-chart"), [{
+                data: bar_chart_data,
+                //           color: "rgba(31,174,102, 0.8)",
+                color: "#F85D2C",
+                shadowSize: 0,
+                bars: {
+                    show: true,
+                    lineWidth: 0,
+                    fill: true,
+                    fillColor: {
+                        colors: [{
+                            opacity: 1
+                        }, {
+                            opacity: 1
+                        }]
+                    }
+                }
+            }], {
+                series: {
+                    bars: {
+                        show: true,
+                        barWidth: 0.9,
+                        align: "center"
+                    }
+                },
+                grid: {
+                    show: true,
+                    hoverable: true,
+                    borderWidth: 0
+                },
+                yaxis: {
+                    min: 0,
+                    max: 20,
+                    show: false
+                },
+                xaxis: {
+                    mode: "categories",
+                    tickLength: 0,
+                    color: "#FFFFFF",
+                }
+            });
+
+            var previousPoint2 = null;
+            $("#revenue-bar-chart").bind("plothover", function (event, pos, item) {
+                $("#x").text(pos.x.toFixed(2));
+                $("#y").text(pos.y.toFixed(2));
+                if (item) {
+                    if (previousPoint2 != item.dataIndex) {
+                        previousPoint2 = item.dataIndex;
+                        $("#tooltip").remove();
+                        var x = item.datapoint[0] + 1,
+                            y = item.datapoint[1].toFixed(2);
+                        showTooltip(item.pageX, item.pageY,
+                                    "<p class='vd_bg-green'><strong class='mgr-10 mgl-10'>" + x + " - " + @DateTime.Now.Year + " </strong></p>" +
+                                    "<div style='padding: 0 10px 10px;'>" +
+                                    "<div> Number Emp: <strong>" + item.datapoint[1] + "</strong></div>" +
+                                    "</div>"
+                        );
+                    }
+                }
+            });
+
+            $('#revenue-bar-chart').bind("mouseleave", function () {
+                $("#tooltip").remove();
+            });
+
+
+
+        });
+
+
+    </script>
+
+
+
+}

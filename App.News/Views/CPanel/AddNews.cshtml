@@ -1,0 +1,233 @@
+﻿@model App.Models.News
+@{
+    ViewBag.Title = "Add News";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<link href="~/Content/Switch/switchery.min.css" rel="stylesheet" />
+<link href="~/Content/pb/holdon-resources/css/HoldOn.css" rel="stylesheet" />
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="@Url.Action("Index","CPanel")">Home</a> </li>
+                        <li class="active">Departments</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step="5" data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"><i class="fa fa-arrows-h"></i></div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"><i class="fa fa-arrows-v"></i></div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"><i class="glyphicon glyphicon-fullscreen"></i></div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="vd_content-section clearfix">
+
+                <div class="row" id="PanelDepartment">
+                    <div class="col-md-12">
+                        <div class="panel widget">
+                            <div class="panel-heading vd_bg-grey">
+                                <h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-bar-chart-o"></i> </span> Add News </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Title :</label>
+                                        <div class="col-sm-7 controls">
+                                            <input type="hidden" id="ID" value="@Model.ID" />
+                                            <input class="width-70" type="text" placeholder="Add Title" id="Title" value="@Model.Title">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Content :</label>
+                                        <div class="col-sm-7 controls">
+                                            <textarea rows="6" cols="50" class="width-100" id="Content">
+                                                @Model.Content
+                                            </textarea>
+
+                                            @*<input class="width-70" type="text" placeholder="Add Content" id="Title" value="@Model.Content">*@
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Video Url :</label>
+                                        <div class="col-sm-7 controls">
+                                            <input class="width-70" type="text" placeholder="Add Video Url" id="VideoUrl" value="@Model.VideoUrl">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Upload Image</label>
+                                        <div class="col-sm-6">
+                                            <input type="file" name="file_upload" id="file_upload" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <code>*</code>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-6">
+                                            <div id="uploaded">
+
+                                                <img id="image1" src='@Model.Image' alt='Image Inserted' style='width:100px;height:100px;' />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Department</label>
+                                        <div class="col-sm-7 controls">
+                                            <select id="Department" class="selectpicker show-tick form-control width-70" data-live-search="true">
+                                                <option value="0">Please Select Department</option>
+                                                @foreach (var item in ViewBag.Departments)
+                                                {
+                                                    <option value="@item.DID">@item.Name</option>
+                                                }
+
+
+                                            </select>
+                                        </div>
+                                        <code>*</code>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Is Main News : </label>
+                                        <div class="col-sm-7 controls">
+                                            @if (Model.IsMain == true)
+                                            {
+                                                <input id="IsMain" type="checkbox" class="js-switch" checked />
+                                            }
+                                            else
+                                            {
+                                                <input id="IsMain" type="checkbox" class="js-switch" />
+                                            }
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-actions">
+                                        <div class="col-sm-4"> </div>
+                                        <div class="col-sm-7">
+                                            <button onclick="AddNews()" class="btn vd_btn vd_bg-green vd_white" type="submit"><i class="icon-ok"></i> Save</button>
+                                            <a href="@Url.Action("News","CPanel")" class="btn vd_btn vd_bg-red" type="button">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Panel Widget -->
+                    </div>
+                    <!-- col-md-12 -->
+                </div>
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+@section scripts
+{
+    <script src="~/Content/Switch/switchery.min.js"></script>
+
+    <script>
+        $(window).load(function () {
+            var elem = document.querySelector('.js-switch');
+            var init = new Switchery(elem);
+            $('#IsMain').val('@Model.IsMain')
+            $('#Department').val('@Model.DID')
+        });
+    </script>
+    <script src="~/Content/SiteScript/aFunctions.js"></script>
+    <script src="~/Content/SiteScript/bFunctions.js"></script>
+
+
+    @* ############################# Alert #####################################*@
+    <script src="~/Content/Alert/sweet-alert.js"></script>
+    <link href="~/Content/Alert/sweet-alert.css" rel="stylesheet" />
+    @* ############################# Alert #####################################*@
+
+
+    @* ############################# Notify me  ########################################*@
+    <link href="~/Content/Notifyme/assets/css/notifyme.css" rel="stylesheet" />
+    <script src="~/Content/Notifyme/assets/js/notifyme.js"></script>
+    @* ############################# Notify me  ########################################*@
+
+
+    <script src="~/Content/uploadify/jquery.uploadify.min.js"></script>
+    <script src="~/Content/uploadify/jquery.uploadify.js"></script>
+    <link href="~/Content/uploadify/uploadify.css" rel="stylesheet" />
+    <script src="~/Content/SiteScript/logo.js"></script>
+    <script type="text/javascript">
+
+        // Code for Uploadify
+        $(function () {
+            $('#file_upload').uploadify({
+                'buttonText': 'Upload Image ',
+                'swf': "@Url.Content("/Content/uploadify/uploadify.swf")",
+                'cancelImg': "@Url.Content("/Content/uploadify/uploadify-cancel.png")",
+                'uploader': "@Url.Action("UploadImagesforDepartment", "CPanel")",
+                'onUploadSuccess': function (file, data, response) {
+                    $("#uploaded").html("<img id='image1' src='" + data + "' alt='Image Inserted' style='width:100px;height:100px;' />");
+                }
+            });
+        });
+
+    </script>
+
+
+    @* ###################### Select #########################################*@
+    <link rel="stylesheet" type="text/css" href="~/Content/selectTypeHead/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/selectTypeHead/select2.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/selectTypeHead/multi-select.css" />
+    <link href="~/Content/selectTypeHead/plugins.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="~/Content/selectTypeHead/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="~/Content/selectTypeHead/select2.min.js"></script>
+    <script type="text/javascript" src="~/Content/selectTypeHead/jquery.multi-select.js"></script>
+
+    <script>
+        $(window).on('load', function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
+    @* ###################### Select #########################################*@
+
+
+
+    <script src="~/Content/SiteScript/News.js"></script>
+}
+
+
+
+
+
+
+
+
+

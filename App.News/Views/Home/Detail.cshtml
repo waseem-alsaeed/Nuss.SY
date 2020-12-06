@@ -1,0 +1,62 @@
+﻿@model App.Models.News
+@{
+    ViewBag.Title = "التفاصيل";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="content">
+    <div class="container">
+
+
+        <!-- Main Content -->
+        <div  style="color:black">
+            <div class="columns col-lg-12">
+                <!-- Single -->
+                <h1 style="text-align:center" class="line"><span>@Model.Title</span></h1>
+                <p>@Model.Content</p>
+                <img src="@Model.Image" style="wdith:70%;" />
+
+             
+                <div class="outerwide">
+               
+                
+
+                </div>
+
+                <div id="map">
+                    <video width="600" height="315" src="@Model.VideoUrl"></video>
+                </div>
+
+            </div>
+            <!-- /Single -->
+
+        </div>
+        <!-- /Main Content -->
+        <!-- Left Sidebar -->
+        <div class="column-one-third">
+            <div class="sidebar">
+                <h5 class="line"><span>الشبكات الإجتماعية</span></h5>
+                <ul class="social">
+                    <li>
+                        <a href="www.facebook.com/IEF.AdministrativeBoard" class="facebook"><i class="icon-facebook"></i></a>
+                        <span>32,800 <br> <i>Likes</i></span>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter"><i class="icon-twitter"></i></a>
+                        <span>12,475 <br> <i>followers</i></span>
+                    </li>
+                    <li>
+                        <a href="www.youtube/nuss" class="rss"><i class="icon-rss"></i></a>
+                        <span>12,475 <br> <i>Subscribers</i></span>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+        <!-- /Left Sidebar -->
+
+    </div>
+</section>
+

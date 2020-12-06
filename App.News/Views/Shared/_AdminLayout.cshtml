@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel</title>
+    <link rel="shortcut icon" href="img/sms-4.ico" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="Companies , Saudi Arabia , RMG" />
+    <meta name="description" content="This site was designed and programmed by Mohammad Alsaid">
+    <meta name="author" content="Eng.Mohamad Alsaid">
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="~/Content/mosaeed_bs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/css/font-entypo.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/plugins/jquery-ui/jquery-ui.custom.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/plugins/prettyPhoto-plugin/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/plugins/isotope/css/isotope.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/plugins/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/plugins/introjs/css/introjs.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/css/theme.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/css/chrome.css" rel="stylesheet" type="text/chrome">
+    <link href="~/Content/mosaeed_bs/css/theme-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/mosaeed_bs/custom/custom.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/mobile-detect.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/mobile-detect-modernizr.js"></script>
+
+    <link href="~/Content/pb/holdon-resources/css/HoldOn.css" rel="stylesheet" />
+</head>
+<body id="dashboard" class="full-layout  nav-right-hide nav-right-start-hide  nav-top-fixed      responsive    clearfix" data-active="dashboard " data-smooth-scrolling="1">
+
+
+    <div class="vd_body">
+
+        @RenderSection("styles", required: false)
+
+        @Html.Partial("_AdminHeader")
+
+        <div class="content">
+            <div class="container">
+                <div class="vd_navbar vd_nav-width vd_navbar-tabs-menu vd_navbar-left  ">
+
+                    <div class="navbar-menu clearfix">
+                        <div class="vd_panel-menu hidden-xs">
+                            <span data-original-title="Expand All" data-toggle="tooltip" data-placement="bottom" data-action="expand-all" class="menu" data-intro="<strong>Expand Button</strong><br/>To expand all menu on left navigation menu." data-step="4">
+                                <i class="fa fa-sort-amount-asc"></i>
+                            </span>
+                        </div>
+                        <h3 class="menu-title hide-nav-medium hide-nav-small">Menu</h3>
+                        <div class="vd_menu">
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Index" , "CPanel")">
+                                        <span class="menu-icon"><i class="fa fa-dashboard"></i></span>
+                                        <span class="menu-text">Home</span>
+                                        <span class="menu-badge"><span class="badge vd_bg-black-30"></span></span>
+                                    </a>
+
+                                </li>
+
+
+
+                                <li>
+                                    <a href="javascript:void(0);" data-action="click-trigger">
+                                        <span class="menu-icon"><i class="fa fa-sitemap"></i></span>
+                                        <span class="menu-text">Manage</span>
+                                        <span class="menu-badge"><span class="badge vd_bg-black-30"><i class="fa fa-angle-down"></i></span></span>
+                                    </a>
+                                    <div class="child-menu" data-action="click-target">
+                                        <ul class="clearfix">
+                                            <li>
+                                                <a href="@Url.Action("Departments" , "CPanel")">
+                                                    <span class="menu-text">Departments</span>
+                                                    <span class="menu-badge"><span class="badge vd_bg-black-30"></span></span>
+                                                </a>
+
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("News" , "CPanel")">
+                                                    <span class="menu-text">News</span>
+                                                    <span class="menu-badge"><span class="badge vd_bg-black-30"></span></span>
+                                                </a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                                <li>
+                                    <a href="@Url.Action("Users" , "CPanel")">
+                                        <span class="menu-icon"><i class="fa fa-users"></i></span>
+                                        <span class="menu-text">Users</span>
+                                        <span class="menu-badge"><span class="badge vd_bg-yellow"><i class="fa fa-star"></i></span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Roles" , "CPanel")">
+                                        <span class="menu-icon"><i class="fa fa-lock"></i></span>
+                                        <span class="menu-text">Roles</span>
+                                        <span class="menu-badge"><span class="badge vd_bg-yellow"></span></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Action("Videos" , "CPanel")">
+                                        <span class="menu-icon"><i class="fa fa-eye"></i></span>
+                                        <span class="menu-text">Videos</span>
+                                        <span class="menu-badge"><span class="badge vd_bg-yellow"></span></span>
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="@Url.Action("Sliders" , "CPanel")">
+                                        <span class="menu-icon"><i class="fa fa-angle-up"></i></span>
+                                        <span class="menu-text">Sliders</span>
+                                        <span class="menu-badge"><span class="badge vd_bg-yellow"></span></span>
+                                    </a>
+                                </li>
+
+
+
+                                
+                            </ul>
+                            <!-- Head menu search form ends -->
+                        </div>
+                    </div>
+                    <div class="navbar-spacing clearfix">
+                    </div>
+                    <div class="vd_menu vd_navbar-bottom-widget">
+                        <ul>
+                            <li>
+                                <a href="javascript::void" onclick="LogOut()">
+                                    <span class="menu-icon"><i class="fa fa-sign-out"></i></span>
+                                    <span class="menu-text">Logout</span>
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                @RenderBody()
+
+
+            </div>
+        </div>
+
+
+
+    
+
+
+        @Html.Partial("_AdminFooter")
+
+
+    </div>
+
+
+    <a id="back-top" href="#" data-action="backtop" class="vd_back-top visible"><i class="fa  fa-angle-up"></i></a>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/jquery.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='~/Content/mosaeed_bs/plugins/jquery-ui/jquery-ui.custom.min.js'></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/caroufredsel.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/plugins.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/breakpoints/breakpoints.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/prettyPhoto-plugin/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/plugins/blockUI/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/js/theme.js"></script>
+    <script type="text/javascript" src="~/Content/mosaeed_bs/custom/custom.js"></script>
+    <script type="text/javascript" src='~/Content/mosaeed_bs/plugins/introjs/js/intro.min.js'></script>
+    <script type="text/javascript" src='~/Content/mosaeed_bs/plugins/skycons/skycons.js'></script>
+    <script src="~/Content/pb/holdon-resources/js/HoldOn.js"></script>
+    <script src="~/Content/SiteScript/login.js"></script>
+    @RenderSection("scripts", required: false)
+
+
+
+
+</body>
+</html>

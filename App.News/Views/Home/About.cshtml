@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "حولنا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="content">
+    <div class="container">
+
+
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Single -->
+            <div class="column-two-third single">
+
+                <div>
+                <p style="font-size:15px;color:black"><b>الاتحاد الوطني لطلبة سوريا</b>  
+              تأسست المنظمة عام 1950 على يد القائد المؤسس القائد الطلابي   
+                    حافظ الاسد وهو من قاد اول مؤتمر<br /> للمنظمة 
+                    تعريفياً الاتحاد الوطني لطلبة سوريا هو :<br />
+                    منظمة جماهيرية تعمل على تنظيم الطلبة في الجامعات والمعاهد ومافي حكمها
+                    واعدادهم من اجل تحقيق اهداف شعبنا في الوحدة والحرية والاشتراكية
+
+                    
+                    </p></div>
+
+
+              <br />
+                    </div>
+                    </div>
+            </div>
+    <div class=" row columns lg-3" style="text-align:center">
+        <img  width="300"  src="~/Content/imgs/logo.png" alt="">
+    </div>
+            <!-- /Single -->
+
+        <!-- /Main Content -->
+        <!-- Left Sidebar -->
+        <div class="column-one-third">
+
+            <div class="sidebar">
+                <h5 class="line"><span>الشبكات الإجتماعية</span></h5>
+                <ul class="social">
+                    <li>
+                        <a href="#" class="facebook"><i class="icon-facebook"></i></a>
+                        <span>6,800 <br> <i>Likes</i></span>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter"><i class="icon-twitter"></i></a>
+                        <span>12,475 <br> <i>followers</i></span>
+                    </li>
+                    <li>
+                        <a href="#" class="rss"><i class="icon-rss"></i></a>
+                        <span>12,475 <br> <i>Subscribers</i></span>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+        <!-- /Left Sidebar -->
+
+</section>
+
+
+@section scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0mc8aAubzHzeEXcsauOa4Jt7JMX7uv5Q&callback=initMap"></script>
+    <script>
+        var myCenter = new google.maps.LatLng(36.784364, 34.617392);
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+
+            marker.setMap(map);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+}
+
+

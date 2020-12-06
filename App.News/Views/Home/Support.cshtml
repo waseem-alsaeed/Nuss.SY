@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "الدعم";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="content">
+    <div class="container">
+
+
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Single -->
+            <div class="columns large-12">
+
+                <div id="googleMap" style="width:600px;height:400px"></div>
+
+                <br />
+
+
+
+
+            </div>
+            <!-- /Single -->
+
+        </div>
+        <!-- /Main Content -->
+        <!-- Left Sidebar -->
+        <div class="row columns large-12">
+            <div class="sidebar">
+                <h5 class="line"><span>الشبكات الإجتماعية</span></h5>
+                <ul class="social">
+                    <li>
+                        <a href="#" class="facebook"><i class="icon-facebook"></i></a>
+                        <span>6,800 <br> <i>Likes</i></span>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter"><i class="icon-twitter"></i></a>
+                        <span>12,475 <br> <i>followers</i></span>
+                    </li>
+                    <li>
+                        <a href="#" class="rss"><i class="icon-rss"></i></a>
+                        <span>12,475 <br> <i>Subscribers</i></span>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+        <!-- /Left Sidebar -->
+
+    </div>
+</section>
+
+
+@section scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0mc8aAubzHzeEXcsauOa4Jt7JMX7uv5Q&callback=initMap"></script>
+    <script>
+        var myCenter = new google.maps.LatLng(36.784364, 34.617392);
+        var myCenter2 = new google.maps.LatLng(36.913521, 34.893210);
+        var myCenter3 = new google.maps.LatLng(36.447166, 37.200164);
+        var myCenter4 = new google.maps.LatLng(37.061491, 37.383567);
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+
+
+            var marker2 = new google.maps.Marker({
+                position: myCenter2,
+            });
+            var marker3 = new google.maps.Marker({
+                position: myCenter3,
+            });
+            var marker4 = new google.maps.Marker({
+                position: myCenter4,
+            });
+            marker.setMap(map);
+            marker2.setMap(map);
+            marker3.setMap(map);
+            marker4.setMap(map);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+}
+
+
+
+
+
+

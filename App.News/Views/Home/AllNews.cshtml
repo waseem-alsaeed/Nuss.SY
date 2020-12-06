@@ -1,0 +1,53 @@
+﻿@model List<App.Models.News>
+@{
+    ViewBag.Title = "كل الأخبار";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="content">
+
+    <div class="container">
+
+        <div id="gallery" dir="rtl">
+            <div id="gallery-header">
+                <div id="gallery-header-center">
+                    <div id="gallery-header-center-left">
+                    
+                    </div>
+                    <div id="gallery-header-center-right">
+                        <div class="gallery-header-center-right-links" id="filter-all">كل</div>
+                    </div>
+                </div>
+            </div>
+            <div id="gallery-content">
+                <div id="gallery-content-center">
+                    @foreach (var item in Model)
+                    {
+                        <a href="@Url.Action("Detail", "Home", new { ID = item.ID })" target="_blank">
+             
+                    <img src="@item.Image" class="all" /></a>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<br /><br />
+<br />
+@section scripts {
+    <link href="/Content/gallery/_css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Content/gallery/_scripts/jquery-ui-1.10.4.min.js"></script>
+    <script type="text/javascript" src="/Content/gallery/_scripts/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/Content/gallery/_scripts/animated-masonry-gallery.js"></script>
+}
+
+
+
+
+
+
+

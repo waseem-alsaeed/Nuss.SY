@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - الموقع الإخباري</title>
+    <link rel="shortcut icon" href="img/sms-4.ico" />
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" href="~/Content/news/css/superfish.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/Content/news/css/fontello/fontello.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/news/css/flexslider.css" media="screen" />
+   <!--<link rel="stylesheet" type="text/css" href="~/Content/news/css/ui.css" />-->
+  <!--  <link rel="stylesheet" type="text/css" href="~/Content/news/css/base.css" /> -->
+    <!--<link rel="stylesheet" type="text/css" href="~/Content/news/css/style.css" />-->
+  
+    <link rel="stylesheet" type="text/css" href="~/Content/news/css/devices/1000.css" media="only screen and (min-width: 768px) and (max-width: 1000px)" />
+    <link rel="stylesheet" type="text/css" href="~/Content/news/css/devices/767.css" media="only screen and (min-width: 480px) and (max-width: 767px)" />
+    <link rel="stylesheet" type="text/css" href="~/Content/news/css/devices/479.css" media="only screen and (min-width: 200px) and (max-width: 479px)" />
+
+    <link rel="stylesheet" href="~/Content/css/foundation.css">
+
+
+    <link rel="stylesheet" href="~/Content/css/demo.css" />
+
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css">
+
+
+
+</head>
+<body dir="rtl">
+
+    <div class="body-wrapper">
+        <div class="controller">
+            <div class="controller2">
+
+                @Html.Partial("_Header")
+
+                @RenderBody()
+
+
+                @Html.Partial("_Footer")
+
+
+                <script type="text/javascript" src="~/Content/news/js/jquery.js"></script>
+                <script src="~/Content/lib/angular/angular.js"></script>
+                <script>var app = angular.module('app', []);</script>
+  
+                <script type="text/javascript" src="~/Content/news/js/easing.min.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/1.8.2.min.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/ui.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/carouFredSel.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/superfish.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/customM.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/flexslider-min.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/tweetable.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/timeago.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/jflickrfeed.min.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/mobilemenu.js"></script>
+                <script type="text/javascript" src="~/Content/news/js/mypassion.js"></script>
+
+
+
+                <script type="text/javascript" src="~/Content/js/script.js"></script>
+
+
+                @RenderSection("scripts", required: false)
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

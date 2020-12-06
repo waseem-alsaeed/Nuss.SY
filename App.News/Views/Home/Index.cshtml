@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "الصفحة الرئيسية";
+}
+
+
+
+
+<div class="row content">
+
+    <aside class="large-2 columns ">
+        <img id="logo" src="~/Content/imgs/logo.png" alt="">
+
+       
+                <div class="cats row">
+
+                    <ul class=" large-12 columns">
+
+                        <li><a href="@Url.Action("AllNews", "Home", new { ID = 8})"><span>النشاط الفني والاجتماعي</span></a></li>
+
+                        <li><a href="@Url.Action("AllNews", "Home", new { ID = 9 })"><span>النشاط الرياضي</span></a></li>
+
+                        <li><a href="@Url.Action("AllNews", "Home", new { ID = 10 })"><span>الملتقيات والعمل الوطني</span></a></li>
+
+                        <li><a href="@Url.Action("AllNews", "Home", new { ID = 12 })"><span>الثقافة والإعلام</span></a></li>
+
+                        <li><a href="@Url.Action("AllNews", "Home", new { ID = 13 })"><span>الدراسات وقضايا الطلبة</span></a></li>
+
+                        <li><a href="@Url.Action("AllNews", "Home", new { ID = 14 })"><span>المعلوماتية</span></a></li>
+                    </ul>
+
+
+                </div>
+
+    </aside>
+    <div class="main large-7  columns ">
+        <h3 class="columns large-3 large-push-9">الفعاليات</h3>
+        <div class="pages columns large-6">
+
+        </div>
+        <div class="flexslider columns large-12">
+            <ul class="slides">
+
+                @foreach (var item in ViewBag.Sliders)
+                {
+                    <li>
+                        <img src="@item.Image" alt="" />
+                        <p class="flex-caption" style="text-align:right"><a href="javascript:;">@item.Title</a>@item.Content</p>
+                    </li>
+                }
+
+
+            </ul>
+        </div>
+
+        <div class="activities row">
+
+
+        <!--  @foreach (var item in ViewBag.Sliders)
+            {
+                <div class="activity row">
+                    <img src="@item.Image" alt="" />
+                    <h4 class="row">@item.Title</h4>
+                    <div class="large-8 large-pull-4 columns">
+                        <p class="row">@item.Content</p>
+    </div>
+                   </div>
+            }-->  
+
+
+
+
+
+
+
+            <div ng-controller="IndexController">
+            
+
+                <section id="content">
+                    <div class="container">
+                        <!-- Main Content -->
+                        <div class="main-content">
+
+                            <!-- Popular News -->
+                            <div class="columns large-12">
+                                <h5 class="line"><span>أخبار متنوعة</span></h5>
+                                <div class="outertight m-r-no">
+                                    <ul class="block">
+
+                                        <li ng-repeat="item in LastestNews">
+                                            <a href="/Home/Detail/{{item.ID}}"><img src="{{item.Image}}" alt="" class="alignleft" /></a>
+                                            <p>
+                                                <span>{{mySplit(item.CreatedDate,0)}}</span>
+                                                <a href="/Home/Detail/{{item.ID}}">{{item.Title}}</a>
+                                            </p>
+                                            <span class="rating"><span style="width:80%;"></span></span>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- /Popular News -->
+                            <!-- Hot News -->
+                            <div class="columns large-12">
+                                <h5 class="line"><span>أخبار متنوعة</span></h5>
+                                <div class="outertight m-r-no">
+                                    <ul class="block">
+
+                                        <li ng-repeat="item in PopularNews">
+                                            <a href="/Home/Detail/{{item.ID}}"><img src="{{item.Image}}" alt="" class="alignleft" /></a>
+                                            <p>
+                                                <span>{{mySplit(item.CreatedDate,0)}}</span>
+                                                <a href="/Home/Detail/{{item.ID}}">{{item.Title}}</a>
+                                            </p>
+                                            <span class="rating"><span style="width:80%;"></span></span>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- /Hot News -->
+                            <!-- Life Style -->
+
+
+
+                        </div>
+                        <!-- /Main Content -->
+                        <!-- Left Sidebar -->
+                        <div class="columns large-12">
+                            <h5 class="line">
+                                <span>الفيديوات</span>
+                                <div class="navbar">
+                                    <a id="next1" class="next" href="#"><span></span></a>
+                                    <a id="prev1" class="prev" href="#"><span></span></a>
+                                </div>
+                            </h5>
+
+
+                            <div class="outertight m-r-no">
+
+                                <ul class="block" id="carousel">
+                                    @for (int i = 0; i < 2; i++)
+                                    {
+                                        <li>
+                                            <video src="I:\Mp4\design\1.mp4" controls="controls"></video>
+
+                                        </li>
+                                    }
+
+                                </ul>
+
+
+                            </div>
+
+
+                        </div>
+                        <!-- /Left Sidebar -->
+
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <aside class="news large-3 columns ">
+        <h3 class="row large-12">آخر الأخبار</h3>
+
+
+        @foreach (var item in ViewBag.Sliders)
+        {
+            <div class="new row">
+              
+                <img src="@item.Image" alt="" class="row large-12">
+
+                <h4 class="row large-12 ">@item.Title</h4>
+                <p >@item.Content</p>
+                </div>
+        }
+
+    
+
+
+</aside>
+
+</div>
+
+
+@section scripts{
+
+    <script src="~/Server/Index.js"></script>
+}

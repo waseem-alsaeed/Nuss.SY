@@ -1,0 +1,146 @@
+﻿@model List<App.Models.Slider>
+@{
+    ViewBag.Title = "Sliders";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="@Url.Action("Index","CPanel")">Home</a> </li>
+                        <li class="active">Departments</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step="5" data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"><i class="fa fa-arrows-h"></i></div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"><i class="fa fa-arrows-v"></i></div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"><i class="glyphicon glyphicon-fullscreen"></i></div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="vd_content-section clearfix">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("AddSlider","CPanel",new { ID = 0})"  class="btn vd_btn vd_round-btn vd_bg-green mgr-10"><i class="fa fa-plus fa-fw"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel widget">
+                            <div class="panel-heading vd_bg-grey">
+                                <h3 class="panel-title"><span class="menu-icon"><i class="fa fa-dot-circle-o"></i></span>Departments Table Data </h3>
+                            </div>
+                            <div class="panel-body  table-responsive" id="mytable">
+                                <table class="table datatable">
+
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Title</th>
+                                            <th>Content</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="datTableDepartment">
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr id="@item.ID">
+                                                <td>@item.ID</td>
+                                                <td class="center">@item.Title</td>
+                                                <td class="center">@item.Content</td>
+                                                
+                                                <td class="center"><img src="@item.Image" style="height:75px;width:75px;" /></td>
+                                                <td class="menu-action">
+                                                    <a href="@Url.Action("AddSlider","CPanel" , new { ID = item.ID })" data-original-title="edit" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-yellow">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <a href="javascript::void(0)" onclick="DeleteSlider(@item.ID)" data-original-title="delete" data-toggle="tooltip" data-placement="top" class="btn menu-icon vd_bg-red">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <!-- Panel Widget -->
+                    </div>
+                    <!-- col-md-12 -->
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+@section scripts
+{
+
+    @* ############################# Data Table #####################################*@
+    <link rel="stylesheet" type="text/css" id="theme" href="~/Content/DataTable/theme-default.css" />
+
+    <script type='text/javascript' src='~/Content/DataTable/plugins/icheck/icheck.min.js'></script>
+    <script type="text/javascript" src="~/Content/DataTable/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/DataTable/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Content/DataTable/plugins/tableexport/tableExport.js"></script>
+    <script type="text/javascript" src="~/Content/DataTable/plugins/tableexport/jquery.base64.js"></script>
+    <script type="text/javascript" src="~/Content/DataTable/plugins/tableexport/html2canvas.js"></script>
+    <script type="text/javascript" src="~/Content/DataTable/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+    <script type="text/javascript" src="~/Content/DataTable/plugins/tableexport/jspdf/jspdf.js"></script>
+    <script type="text/javascript" src="~/Content/DataTable/plugins/tableexport/jspdf/libs/base64.js"></script>
+    <!-- END THIS PAGE PLUGINS-->
+
+    <script type="text/javascript" src="~/Content/DataTable/plugins.js"></script>
+
+    <script>
+
+        $(".dataTables_length select").on("change", function () { onresize() });
+        function onresize(e)
+        { e = e ? e : 200; setTimeout(function () { page_content_onresize() }, e) }
+
+    </script>
+    @* ############################# Data Table #####################################*@
+
+
+    <script src="~/Content/SiteScript/aFunctions.js"></script>
+    <script src="~/Content/SiteScript/bFunctions.js"></script>
+
+
+    @* ############################# Alert #####################################*@
+    <script src="~/Content/Alert/sweet-alert.js"></script>
+    <link href="~/Content/Alert/sweet-alert.css" rel="stylesheet" />
+    @* ############################# Alert #####################################*@
+
+
+    @* ############################# Notify me  ########################################*@
+    <link href="~/Content/Notifyme/assets/css/notifyme.css" rel="stylesheet" />
+    <script src="~/Content/Notifyme/assets/js/notifyme.js"></script>
+    @* ############################# Notify me  ########################################*@
+
+
+
+    <script src="~/Content/SiteScript/Sliders.js"></script>
+}
+
+
+
+
